@@ -57,14 +57,14 @@ public class StringsAndThings {
         int isCounter = 0;
         int notCounter = 0;
 
-        for (int i = 0; i < input.length()-1 ; i++){
-            if (input.charAt(i) == 'i' && input.charAt(i+1) == 's'){
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.charAt(i) == 'i' && input.charAt(i + 1) == 's') {
                 isCounter++;
             }
         }
 
-        for (int i = 0; i < input.length()-2 ; i++){
-            if (input.charAt(i) == 'n' && input.charAt(i+1) == 'o' && input.charAt(i+2) == 't'){
+        for (int i = 0; i < input.length() - 2; i++) {
+            if (input.charAt(i) == 'n' && input.charAt(i + 1) == 'o' && input.charAt(i + 2) == 't') {
                 notCounter++;
             }
         }
@@ -80,7 +80,19 @@ public class StringsAndThings {
      * gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input) {
-        return null;
+        boolean result = false;
+
+
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.charAt(i) == 'g' && input.charAt(i + 1) == 'g') {
+                result = true;
+                i = i + 1;
+            } else if (input.charAt(i) == 'g' && input.charAt(i + 1) != 'g') {
+                result = false;
+                i = (input.length() - 1);
+            }
+        }
+        return result;
     }
 
 
@@ -92,6 +104,18 @@ public class StringsAndThings {
      * countTriple("a") // Should return 0
      */
     public Integer countTriple(String input) {
-        return null;
+        Integer result = 0;
+        if (input.length() < 3) {
+            result = 0;
+        } else {
+            for (int i = 0; i < input.length() - 2; i++) {
+                if (input.charAt(i) == input.charAt(i + 1) && input.charAt(i + 1) == input.charAt(i + 2)) {
+                    result++;
+                }
+            }
+
+
+        }
+        return result;
     }
 }
